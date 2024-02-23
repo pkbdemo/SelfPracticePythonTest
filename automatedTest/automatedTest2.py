@@ -4,9 +4,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import logging
+import os
+os.makedirs('logs', exist_ok=True)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# 創建logger實例
 logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler('automated_test.log')
+log_file_path = os.path.join('logs', 'automated_test.log')
+file_handler = logging.FileHandler(log_file_path)
 file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
 logger.addHandler(file_handler)
 # 定義desired_caps變數
